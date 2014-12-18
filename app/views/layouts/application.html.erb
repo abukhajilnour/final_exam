@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FinalExam</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+      <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <div class="navbar-header">
+
+ <h1> Welcome </h1>
+
+        <% if current_user %>
+          <%= current_user.full_name %>
+          <%= link_to "logout", logout_path, class: "btn btn-default", method: :delete %>
+        <% else %>
+          <%= link_to "Sign in", login_path, class: "btn btn-default" %>
+          <%= link_to "Sign up", signup_path, class: "btn btn-default" %>
+        <% end %>
+     </div>
+    </nav>
+  </div>
+</div>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>

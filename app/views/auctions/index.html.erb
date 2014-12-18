@@ -1,0 +1,12 @@
+<%= link_to "New Auction", new_auction_path, class: "btn btn-default" %>
+
+
+<%= @auctions.each do |c| %>
+  <div class="well">
+    <h4><%=link_to c.title, auction_path(c) %> </h4>
+    <p><%= c.details %></p>
+
+   
+  </div>
+<% end %>
+

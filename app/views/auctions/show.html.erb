@@ -1,0 +1,25 @@
+<h1> <%= @auction.title %> </h1>
+
+<p> <%= @auction.details %> </p>
+
+<p> Ending Date:<%= @auction.ending_date %> </p>
+<p> Reserve price:<%= @auction.reserve_price %></p>
+
+<%= link_to "Edit", edit_auction_path(@auction), class: "btn btn-info"%>
+  <%= link_to "Delete", @auction, method: :delete, class: "btn btn-danger", data: {confirm: "Are you sure?"} %>
+
+
+
+
+<%= simple_form_for [@auction, @pledge] do |f| %>
+  <%= f.input :bid %>
+  <%= f.submit "Bid"%>
+<% end %>
+
+
+<h3> Previous Pledges </h3>
+<%= @auction.pledges.each do |pledge| %>
+  <div class=well>
+    
+    <%= pledge.bid %>
+ <% end %>
